@@ -66,8 +66,6 @@
 (column-number-mode t) ;; show column.
 (global-git-gutter-mode t) ;; show vcs modifications.
 
-(set-frame-font "Hack:pixelsize=16")
-
 ;; Save settings and buffers.
 (desktop-save-mode t)
 
