@@ -199,6 +199,9 @@ otherwise just use the regular newline function."
 ;; Always indent by default.
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+;; Load magit to get the key bindings.
+(require 'magit)
+
 
 ;;
 ;; Emacs generated config:
