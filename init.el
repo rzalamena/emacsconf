@@ -177,6 +177,23 @@ otherwise just use the regular newline function."
 			       (c-set-style "openbsd")
 			       (define-key c-mode-map (kbd "RET") 'c-newline))))
 
+;; Improved HTML editing.
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
+;; Requering alchemist automatically configures elixir buffers to use it.
+(require 'alchemist)
+;; Call `M-x customize', find `alchemist-goto-elixir-source-dir' and
+;; `alchemist-goto-erlang-source-dir' and set them in order to be able
+;; to jump to implementations of Erlang and Elixir functions.
+;;
+;; You can also edit `custom.el' yourself and specify the values there.
+
+;; Improve HTML editing for Elixir embedded models.
+(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+;; NOTE:
+;; elixir auto completion inside HTML is broken, alchemist doesn't like
+;; completing without `elixir-mode'.
+
 ;; Always indent by default.
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
