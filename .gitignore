@@ -1,0 +1,12 @@
+# Ignore package source code / binaries.
+/elpa
+
+# Ignore cache and temporary files.
+/ido.last
+/auto-save-list
+
+# Ignore personal data.
+/projectile-bookmarks.eld
+/.emacs.desktop
+/.emacs.desktop.lock
+/custom.el
