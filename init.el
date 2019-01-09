@@ -42,7 +42,7 @@
 		       ido-vertical-mode
 
 		       ;; Theme.
-		       monokai-theme
+		       doom-themes
 		       ))
 
 ;; Detect first time run to refresh package repository before installing
@@ -58,7 +58,6 @@
 ;;
 ;; GUI.
 ;;
-(require 'monokai-theme) ;; theme.
 (scroll-bar-mode -1) ;; remove scroll bar.
 (menu-bar-mode -1) ;; remove menu bar.
 (tool-bar-mode -1) ;; remove tool bar.
@@ -88,6 +87,10 @@
 
 ;; Make symbols pretty when possible.
 (global-prettify-symbols-mode t)
+
+;; Load theme.
+(require 'doom-themes)
+(load-theme 'doom-one t)
 
 
 ;;
