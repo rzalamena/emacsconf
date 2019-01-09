@@ -58,6 +58,7 @@
 ;;
 ;; GUI.
 ;;
+(defalias 'yes-or-no-p 'y-or-n-p) ;; simplify yes/no with y/n.
 (scroll-bar-mode -1) ;; remove scroll bar.
 (menu-bar-mode -1) ;; remove menu bar.
 (tool-bar-mode -1) ;; remove tool bar.
