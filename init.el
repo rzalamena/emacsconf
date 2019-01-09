@@ -110,12 +110,13 @@
 			      space-before-tab::space space-before-tab))
 (global-whitespace-mode t)
 
-;; Spell checker.
-(with-eval-after-load "ispell"
-  (defvar ispell-program-name "hunspell")
-  (defvar ispell-dictionary "en_US,pt_BR")
-  (ispell-set-spellchecker-params)
-  (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
+;; Spell checker: to use this you have installed the `hunspell' package.
+(require 'ispell)
+(setq ispell-program-name "hunspell"
+      ispell-dictionary "en_US,pt_BR")
+
+(ispell-set-spellchecker-params)
+(ispell-hunspell-add-multi-dic "en_US,pt_BR")
 
 ;; Auto complete.
 (require 'company)
