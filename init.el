@@ -37,6 +37,7 @@
 		       ;; UI improvements.
 		       flx
 		       flx-ido
+		       git-gutter
 		       helm
 		       ido-vertical-mode
 
@@ -63,6 +64,7 @@
 (tool-bar-mode -1) ;; remove tool bar.
 (setq inhibit-startup-screen t) ;; Don't show startup screen.
 (column-number-mode t) ;; show column.
+(global-git-gutter-mode t) ;; show vcs modifications.
 
 (set-frame-font "Hack:pixelsize=16")
 
