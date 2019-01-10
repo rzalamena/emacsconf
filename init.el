@@ -45,6 +45,7 @@
 		       solaire-mode
 
 		       ;; Theme.
+		       doom-modeline
 		       doom-themes
 		       ))
 
@@ -111,6 +112,10 @@
 (load-theme 'doom-one t)
 (doom-themes-org-config)
 (doom-themes-neotree-config)
+
+;; Load the matching modeline.
+(require 'doom-modeline)
+(doom-modeline-init)
 
 
 ;;
