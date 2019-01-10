@@ -35,11 +35,14 @@
 		       magit
 
 		       ;; UI improvements.
+		       all-the-icons
 		       flx
 		       flx-ido
 		       git-gutter
 		       helm
 		       ido-vertical-mode
+		       neotree
+		       solaire-mode
 
 		       ;; Theme.
 		       doom-themes
@@ -89,9 +92,25 @@
 ;; Make symbols pretty when possible.
 (global-prettify-symbols-mode t)
 
+;; Load icons for neotree and themes.
+(require 'all-the-icons)
+;; Note: you must run `all-the-icons-install-fonts' in order to get the
+;; icons to show.
+
+;; Load neotree and set the key binding.
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;; Use solaire-mode.
+(require 'solaire-mode)
+(add-hook 'change-major-mode-hook #'turn-on-solaire-mode)
+(add-hook 'after-revert-hook #'turn-on-solaire-mode)
+
 ;; Load theme.
 (require 'doom-themes)
 (load-theme 'doom-one t)
+(doom-themes-org-config)
+(doom-themes-neotree-config)
 
 
 ;;
