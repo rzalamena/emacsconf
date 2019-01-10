@@ -101,6 +101,7 @@
 (show-paren-mode t) ;; show matching parentheses.
 (setq make-backup-files nil) ;; disable backup files.
 (setq require-final-newline t) ;; add blank newline at the end files.
+(global-auto-revert-mode t) ;; update buffer when disk file has changed.
 
 ;; Show annoying whitespaces.
 (require 'whitespace)
