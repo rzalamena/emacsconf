@@ -240,3 +240,4 @@ otherwise just use the regular newline function."
     (load custom-file))
 
 (provide 'init)
+;;; init.el ends here
