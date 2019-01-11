@@ -166,6 +166,8 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; OpenBSD C style plus tweaks.
+(require 'cc-mode)
+
 (defun c-newline ()
   "C newline implementation.
 
