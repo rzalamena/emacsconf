@@ -174,10 +174,17 @@
 Check if we are inside a code comment to continue inside comment,
 otherwise just use the regular newline function."
   (interactive)
-  (let ((langelem (caar (last (c-guess-basic-syntax)))))
-    (if (or (eq langelem 'comment-intro)
-	    (eq langelem 'c))
-	(c-indent-new-comment-line)
+  (let ((cont t) langelem)
+    (save-excursion
+      ;; Find the language element we are inside of.
+      (while cont
+	(setq langelem (caar (last (c-guess-basic-syntax))))
+	(unless (eq langelem 'c)
+	  (setq cont nil))
+	(forward-line -1)))
+    ;; If inside comment use comment newline otherwise use the default.
+    (if (eq langelem 'comment-intro)
+        (c-indent-new-comment-line)
       (newline-and-indent))))
 
 (defconst openbsd-c-style
