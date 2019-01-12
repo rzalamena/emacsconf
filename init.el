@@ -152,9 +152,7 @@
 	     '(alchemist-company
 	       company-c-headers
 	       company-gtags
-	       company-web-html
-	       company-web-jade
-	       company-web-slim))
+	       company-web-html))
 
 ;; Syntax checking.
 (global-flycheck-mode t)
