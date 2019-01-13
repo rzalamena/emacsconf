@@ -213,6 +213,10 @@ otherwise just use the regular newline function."
 			       (c-set-style "openbsd")
 			       (define-key c-mode-map (kbd "RET") 'c-newline))))
 
+;; Setup flycheck clang analyzer.
+(require 'flycheck-clang-analyzer)
+(flycheck-clang-analyzer-setup)
+
 ;; Improved HTML editing.
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
