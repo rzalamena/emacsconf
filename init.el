@@ -147,6 +147,7 @@
 (require 'company)
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
+(setq company-minimum-prefix-length 1) ;; Complete earlier.
 
 (add-to-list 'company-backends
 	     '(alchemist-company
