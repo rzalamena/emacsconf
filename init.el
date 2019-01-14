@@ -23,6 +23,7 @@
 		       alchemist ;; Elixir.
 		       web-mode ;; template editing.
 		       gitignore-mode
+		       markdown-mode
 
 		       ;; Syntax checking.
 		       flycheck
