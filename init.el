@@ -42,6 +42,8 @@
 		       helm
 		       ido-vertical-mode
 		       neotree
+		       rainbow-delimiters
+		       rainbow-mode
 		       solaire-mode
 
 		       ;; Theme.
@@ -116,6 +118,13 @@
 ;; Load the matching modeline.
 (require 'doom-modeline)
 (doom-modeline-init)
+
+;; Load rainbow & rainbow-delimiters mode.
+(require 'rainbow-delimiters)
+(require 'rainbow-mode)
+
+(add-hook 'prog-mode-hook #'rainbow-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 
 ;;
