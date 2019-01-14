@@ -16,6 +16,7 @@
 		       ;; Auto complete.
 		       company
 		       company-c-headers
+		       company-tern
 		       company-web
 
 		       ;; Languages support.
@@ -154,6 +155,8 @@
 
 ;; Auto complete.
 (require 'company)
+(require 'company-tern)
+
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
 (setq company-minimum-prefix-length 1) ;; Complete earlier.
@@ -162,6 +165,7 @@
 	     '(alchemist-company
 	       company-c-headers
 	       company-gtags
+	       company-tern
 	       company-web-html))
 
 ;; Syntax checking.
@@ -172,6 +176,9 @@
 (projectile-mode t)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; JavaScript auto completion.
+(add-hook 'js-mode-hook (lambda () (tern-mode)))
 
 ;; OpenBSD C style plus tweaks.
 (require 'cc-mode)
