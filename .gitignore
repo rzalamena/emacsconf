@@ -1,5 +1,6 @@
 # Ignore package source code / binaries.
 /elpa
+/emojis
 
 # Ignore cache and temporary files.
 /ido.last

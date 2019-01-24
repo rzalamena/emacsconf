@@ -38,8 +38,10 @@
 
 		       ;; UI improvements.
 		       all-the-icons
+		       emojify
 		       flx
 		       flx-ido
+		       fontawesome
 		       git-gutter
 		       helm
 		       ido-vertical-mode
@@ -127,6 +129,11 @@
 
 (add-hook 'prog-mode-hook #'rainbow-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Replace text with actual emojis.
+(global-emojify-mode t)
+;; You must run `emojify-download-emoji' to download and install the
+;; emojis so emacs can display them.
 
 
 ;;
