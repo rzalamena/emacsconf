@@ -121,7 +121,7 @@
 
 ;; Load the matching modeline.
 (require 'doom-modeline)
-(doom-modeline-init)
+(doom-modeline-mode t)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
