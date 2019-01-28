@@ -25,6 +25,7 @@
 		       web-mode ;; template editing.
 		       gitignore-mode
 		       markdown-mode
+		       clang-format ;; C clang automatic code formating.
 
 		       ;; Syntax checking.
 		       flycheck
