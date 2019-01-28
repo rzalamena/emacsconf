@@ -117,7 +117,7 @@
 
 ;; Load theme.
 (require 'doom-themes)
-(load-theme 'doom-one t)
+(load-theme 'doom-tomorrow-night t)
 (doom-themes-org-config)
 (doom-themes-neotree-config)
 
