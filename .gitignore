@@ -1,6 +1,7 @@
 # Ignore package source code / binaries.
 /elpa
 /emojis
+/anaconda-mode
 
 # Ignore cache and temporary files.
 /ido.last

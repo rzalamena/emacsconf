@@ -15,6 +15,7 @@
 (defvar package-list '(
 		       ;; Auto complete.
 		       company
+		       company-anaconda
 		       company-c-headers
 		       company-tern
 		       company-web
@@ -163,6 +164,7 @@
 
 ;; Auto complete.
 (require 'company)
+(require 'company-anaconda)
 (require 'company-tern)
 
 (global-company-mode t)
@@ -171,10 +173,16 @@
 
 (add-to-list 'company-backends
 	     '(alchemist-company
+	       company-anaconda
 	       company-c-headers
 	       company-gtags
 	       company-tern
 	       company-web-html))
+
+;; Configure Python mode to use anaconda.
+(require 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
 
 ;; Syntax checking.
 (global-flycheck-mode t)
