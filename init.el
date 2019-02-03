@@ -57,14 +57,17 @@
 		       doom-themes
 		       ))
 
-;; Detect first time run to refresh package repository before installing
-;; required packages.
-(or (file-exists-p package-user-dir) (package-refresh-contents))
-
-;; Install if not installed.
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+;; Detect non installed packages and install them.
+(let (isrefreshed)
+  (dolist (package package-list)
+    (unless (package-installed-p package)
+      ;; Check if we have ever refreshed the repositories, otherwise
+      ;; do it to avoid error messages on boot-up.
+      (unless isrefreshed
+	(progn
+	  (package-refresh-contents)
+	  (setq isrefreshed t)))
+      (package-install package))))
 
 
 ;;
