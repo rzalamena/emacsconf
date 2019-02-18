@@ -270,6 +270,10 @@ otherwise just use the regular newline function."
 ;; elixir auto completion inside HTML is broken, alchemist doesn't like
 ;; completing without `elixir-mode'.
 
+;; With the exception of C, all other languages expect spaces instead of
+;; tabs.
+(setq-default indent-tabs-mode nil)
+
 ;; Always indent by default.
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
