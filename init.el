@@ -13,48 +13,52 @@
 
 ;; Packages to auto install.
 (defvar package-list '(
-		       ;; Auto complete.
-		       company
-		       company-anaconda
-		       company-c-headers
-		       company-tern
-		       company-web
+                       ;; Auto complete.
+                       company
+                       company-anaconda
+                       company-c-headers
+                       company-tern
+                       company-web
 
 		       ;; Languages support.
-		       alchemist ;; Elixir.
-		       web-mode ;; template editing.
-		       gitignore-mode
-		       markdown-mode
-		       clang-format ;; C clang automatic code formating.
+                       alchemist
+                       clang-format
+                       dockerfile-mode
+                       gitignore-mode
+                       gnuplot-mode
+                       graphviz-dot-mode
+                       markdown-mode
+                       vue-mode
+                       web-mode
 
-		       ;; Syntax checking.
-		       flycheck
-		       flycheck-clang-analyzer
+                       ;; Syntax checking.
+                       flycheck
+                       flycheck-clang-analyzer
 
-		       ;; Project handling.
-		       ggtags
-		       projectile
+                       ;; Project handling.
+                       ggtags
+                       projectile
 
-		       ;; Git handling.
-		       magit
+                       ;; Git handling.
+                       magit
 
-		       ;; UI improvements.
-		       all-the-icons
-		       emojify
-		       flx
-		       flx-ido
-		       fontawesome
-		       git-gutter
-		       helm
-		       ido-vertical-mode
-		       neotree
-		       rainbow-delimiters
-		       rainbow-mode
-		       solaire-mode
+                       ;; UI improvements.
+                       all-the-icons
+                       emojify
+                       flx
+                       flx-ido
+                       fontawesome
+                       git-gutter
+                       helm
+                       ido-vertical-mode
+                       neotree
+                       rainbow-delimiters
+                       rainbow-mode
+                       solaire-mode
 
-		       ;; Theme.
-		       doom-modeline
-		       doom-themes
+                       ;; Theme.
+                       doom-modeline
+                       doom-themes
 		       ))
 
 ;; Detect non installed packages and install them.
@@ -276,6 +280,12 @@ otherwise just use the regular newline function."
 
 ;; Always indent by default.
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+;; Load languages support.
+(require 'dockerfile-mode)
+(require 'gnuplot-mode)
+(require 'graphviz-dot-mode)
+(require 'vue-mode)
 
 ;; Load magit to get the key bindings.
 (require 'magit)
