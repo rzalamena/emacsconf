@@ -57,8 +57,7 @@
                        solaire-mode
 
                        ;; Theme.
-                       doom-modeline
-                       doom-themes
+                       monokai-theme
 		       ))
 
 ;; Detect non installed packages and install them.
@@ -115,6 +114,7 @@
 
 ;; Load neotree and set the key binding.
 (require 'neotree)
+(setq neo-theme 'icons)
 (global-set-key [f8] 'neotree-toggle)
 
 ;; Use solaire-mode.
@@ -123,14 +123,7 @@
 (add-hook 'after-revert-hook #'turn-on-solaire-mode)
 
 ;; Load theme.
-(require 'doom-themes)
-(load-theme 'doom-one t)
-(doom-themes-org-config)
-(doom-themes-neotree-config)
-
-;; Load the matching modeline.
-(require 'doom-modeline)
-(doom-modeline-mode t)
+(require 'monokai-theme)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
