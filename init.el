@@ -30,6 +30,7 @@
                        markdown-mode
                        vue-mode
                        web-mode
+                       yaml-mode
 
                        ;; Syntax checking.
                        flycheck
@@ -279,6 +280,7 @@ otherwise just use the regular newline function."
 (require 'gnuplot-mode)
 (require 'graphviz-dot-mode)
 (require 'vue-mode)
+(require 'yaml-mode)
 
 ;; Load magit to get the key bindings.
 (require 'magit)
