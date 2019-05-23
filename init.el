@@ -31,6 +31,7 @@
                        vue-mode
                        web-mode
                        yaml-mode
+                       yang-mode
 
                        ;; Syntax checking.
                        flycheck
@@ -281,6 +282,7 @@ otherwise just use the regular newline function."
 (require 'graphviz-dot-mode)
 (require 'vue-mode)
 (require 'yaml-mode)
+(require 'yang-mode)
 
 ;; Load magit to get the key bindings.
 (require 'magit)
