@@ -56,10 +56,9 @@
                        neotree
                        rainbow-delimiters
                        rainbow-mode
-                       solaire-mode
 
                        ;; Theme.
-                       monokai-theme
+                       ample-theme
 		       ))
 
 ;; Detect non installed packages and install them.
@@ -119,13 +118,8 @@
 (setq neo-theme 'icons)
 (global-set-key [f8] 'neotree-toggle)
 
-;; Use solaire-mode.
-(require 'solaire-mode)
-(add-hook 'change-major-mode-hook #'turn-on-solaire-mode)
-(add-hook 'after-revert-hook #'turn-on-solaire-mode)
-
 ;; Load theme.
-(require 'monokai-theme)
+(require 'ample-theme)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
