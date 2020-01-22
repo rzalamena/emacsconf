@@ -161,12 +161,15 @@
 (setq company-minimum-prefix-length 1) ;; Complete earlier.
 
 (add-to-list 'company-backends
-	     '(alchemist-company
-	       company-anaconda
-	       company-c-headers
-	       company-gtags
-	       company-tern
-	       company-web-html))
+             '(alchemist-company
+               company-anaconda
+               company-c-headers
+               company-capf
+               company-files
+               company-gtags
+               company-tern
+               company-web-html
+               ))
 
 ;; Configure Python mode to use anaconda.
 (require 'anaconda-mode)
