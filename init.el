@@ -58,8 +58,8 @@
                        rainbow-mode
 
                        ;; Theme.
-                       ample-theme
-		       ))
+                       gruvbox-theme
+                       ))
 
 ;; Detect non installed packages and install them.
 (let (isrefreshed)
@@ -119,7 +119,7 @@
 (global-set-key [f8] 'neotree-toggle)
 
 ;; Load theme.
-(require 'ample-theme)
+(require 'gruvbox-theme)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
