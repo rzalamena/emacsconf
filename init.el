@@ -49,7 +49,6 @@
                        emojify
                        flx
                        flx-ido
-                       fontawesome
                        git-gutter
                        helm
                        ido-vertical-mode
