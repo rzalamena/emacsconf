@@ -46,10 +46,10 @@
 
                        ;; UI improvements.
                        all-the-icons
+                       diff-hl
                        emojify
                        flx
                        flx-ido
-                       git-gutter
                        helm
                        ido-vertical-mode
                        neotree
@@ -82,7 +82,9 @@
 (tool-bar-mode -1) ;; remove tool bar.
 (setq inhibit-startup-screen t) ;; Don't show startup screen.
 (column-number-mode t) ;; show column.
-(global-git-gutter-mode t) ;; show vcs modifications.
+
+;; VCS gutter.
+(require 'diff-hl)
 
 ;; Save settings and buffers.
 (desktop-save-mode t)
