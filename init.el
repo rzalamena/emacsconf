@@ -47,7 +47,6 @@
                        ;; UI improvements.
                        all-the-icons
                        diff-hl
-                       emojify
                        flx
                        flx-ido
                        helm
@@ -128,11 +127,6 @@
 
 (add-hook 'prog-mode-hook #'rainbow-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-;; Replace text with actual emojis.
-(global-emojify-mode t)
-;; You must run `emojify-download-emoji' to download and install the
-;; emojis so emacs can display them.
 
 
 ;;
