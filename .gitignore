@@ -8,6 +8,8 @@
 /ido.last
 /tramp
 /transient
+/.cache
+/.lsp-session-v1
 
 # Ignore personal data.
 /.emacs.desktop
