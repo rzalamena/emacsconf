@@ -6,37 +6,44 @@ Required Packages
 
 Dependencies per language:
 
-| Language   | Packages                  |
-|:----------:|---------------------------|
-| C          | `clang`, `global` (gtags) |
-| Elixir     | `erlang`, `elixir`        |
-| Git        | `git`                     |
-| JavaScript | `tern`                    |
-| Markdown   | `discount`                |
+| Language   | Packages                        |
+|:----------:|---------------------------------|
+| C          | `clang`, `global` (gtags)       |
+| cmake      | `cmake-language-server` (pip)   |
+| Elixir     | `erlang`, `elixir`, `elixir-ls` |
+| Git        | `git`                           |
+| JavaScript | `vls` (npm/yarn)                |
+| Markdown   | `discount`                      |
+| Python     | `python-language-server` (pip)  |
+| Ruby       | `solargraph` (gem)              |
+| Vue        | `vls` (npm/yarn)                |
 
 
-JavaScript auto complete
-------------------------
+Language Servers
+----------------
 
-JavaScript auto complete requires a `tern-project` file at the root of
-the project. Here is an example for JavaScript on a phoenix framework
-project:
+Install the dependencies as shown by the table in `Required Packages` and
+don't forget to tell emacs to look for binaries in their installation path:
 
-```js
-{
-  "ecmaVersion": 6,
-  "libs": [
-    "browser"
-  ],
-  "plugins": {
-    "webpack": {
-      "configPath": "./assets/webpack.config.js"
-    }
-  }
-}
+```el
+;; Example of user installed language servers:
+(setq exec-path
+      (append exec-path '(
+                          "/home/user/.npm-packages/bin"    ;; npm/yarn.
+                          "/home/user/.gem/ruby/X.Y.Z/bin"  ;; ruby gem.
+                          "/home/rzalamena/.local/bin"      ;; python/others.
+                          )))
 ```
 
-Read the full documentation [here](http://ternjs.net/doc/manual.html#plugins).
+
+Elixir Language Server
+----------------------
+
+Download and install somewhere a release of `elixir-ls`:
+https://github.com/elixir-lsp/elixir-ls
+
+Configure your emacs variable `lsp-clients-elixir-server-executable` to
+point to the generated/installed `language_server.sh` file.
 
 
 Spell Check
