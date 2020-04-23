@@ -221,10 +221,11 @@ otherwise just use the regular newline function."
 (c-add-style "openbsd" openbsd-c-style)
 
 ;; Automatically configure C buffers to use my preference.
-(add-hook 'c-mode-hook (lambda () (progn
-			       (ggtags-mode t)
-			       (c-set-style "openbsd")
-			       (define-key c-mode-map (kbd "RET") 'c-newline))))
+(add-hook 'c-mode-hook
+          (lambda () (progn
+                  (ggtags-mode t)
+                  (c-set-style "openbsd")
+                  )))
 
 ;; Setup flycheck clang analyzer.
 (require 'flycheck-clang-analyzer)
@@ -250,9 +251,6 @@ otherwise just use the regular newline function."
 ;; With the exception of C, all other languages expect spaces instead of
 ;; tabs.
 (setq-default indent-tabs-mode nil)
-
-;; Always indent by default.
-(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;; Load languages support.
 (require 'dockerfile-mode)
