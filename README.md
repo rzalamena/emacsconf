@@ -64,3 +64,63 @@ English:
 (ispell-set-spellchecker-params)
 (ispell-hunspell-add-multi-dic "en_US,pt_BR")
 ```
+
+
+Complex C Projects
+------------------
+
+When working with a complex C project (e.g. with command-line definitions
+`-DFOO_BAR` or different include paths `-I/new/headers`) you might need
+to instruct the compiler/analyzer some additional parameters.
+
+If your compile tools (e.g. Makefile, cmake or other) don't support or
+can't generate a compilation database you might try using
+[Bear](https://github.com/rizsotto/Bear).
+
+```sh
+# Example:
+cd your-project
+make clean
+bear make -j16
+# Now you have a `compile_commands.json` file.
+```
+
+If flycheck complains about missing header or you need to supply a definition:
+
+```el
+((c-mode . (
+            ;; Include paths are relative to the open file.
+            (flycheck-gcc-include-path . ("." "../" "../secret-headers"))
+            (flycheck-clang-include-path . ("." "../" "../secret-headers"))
+            ;; Tell the compiler about the makefile guards.
+            (flycheck-gcc-args . ("-std=gnu11"
+                                  "-DHAVE_CONFIG_H"
+                                  "-Wall"
+                                  "-Wextra"
+                                  "-Wstrict-prototypes"
+                                  "-Wmissing-prototypes"
+                                  "-Wmissing-declarations"
+                                  "-Wshadow"
+                                  "-Wpointer-arith"
+                                  "-Wconversion"
+                                  "-Wpacked"
+                                  "-Wswitch-enum"
+                                  "-Wimplicit-fallthrough"
+                                  ))
+            (flycheck-clang-args . ("-std=gnu11"
+                                    "-DHAVE_CONFIG_H"
+                                    "-Wall"
+                                    "-Wextra"
+                                    "-Wstrict-prototypes"
+                                    "-Wmissing-prototypes"
+                                    "-Wmissing-declarations"
+                                    "-Wshadow"
+                                    "-Wpointer-arith"
+                                    "-Wconversion"
+                                    "-Wpacked"
+                                    "-Wswitch-enum"
+                                    "-Wimplicit-fallthrough"
+                                    ))
+            )))
+
+```
