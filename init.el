@@ -15,12 +15,8 @@
 (defvar package-list '(
                        ;; Auto complete.
                        company
-                       company-anaconda
-                       company-c-headers
-                       company-tern
-                       company-web
 
-		       ;; Languages support.
+                       ;; Languages support.
                        alchemist
                        clang-format
                        dockerfile-mode
@@ -32,6 +28,13 @@
                        web-mode
                        yaml-mode
                        yang-mode
+
+                       ;; LSP plugins.
+                       lsp-mode
+                       lsp-ui
+                       lsp-elixir
+                       company-lsp
+                       dap-mode
 
                        ;; Syntax checking.
                        flycheck
@@ -149,28 +152,21 @@
 
 ;; Auto complete.
 (require 'company)
-(require 'company-anaconda)
-(require 'company-tern)
+(require 'company-lsp)
+(require 'lsp-mode)
+(require 'lsp-ui)
+(require 'dap-mode)
+
+;; Automatically configure lsp for all languages. Worst case is the
+;; language is not supported and a warning message will be printed.
+(add-hook 'prog-mode-hook #'lsp)
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
 (setq company-minimum-prefix-length 1) ;; Complete earlier.
 
-(add-to-list 'company-backends
-             '(alchemist-company
-               company-anaconda
-               company-c-headers
-               company-capf
-               company-files
-               company-gtags
-               company-tern
-               company-web-html
-               ))
-
-;; Configure Python mode to use anaconda.
-(require 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+;; Configure company to use the LSP backend.
+(add-to-list 'company-backends '(company-lsp))
 
 ;; Syntax checking.
 (global-flycheck-mode t)
@@ -180,9 +176,6 @@
 (projectile-mode t)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-;; JavaScript auto completion.
-(add-hook 'js-mode-hook (lambda () (tern-mode)))
 
 ;; OpenBSD C style plus tweaks.
 (require 'cc-mode)
@@ -237,9 +230,11 @@ otherwise just use the regular newline function."
 (require 'flycheck-clang-analyzer)
 (flycheck-clang-analyzer-setup)
 
-;; Improved HTML editing.
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-
+;; HTML editing note:
+;; elixir auto completion inside HTML is broken, alchemist doesn't like
+;; completing without `elixir-mode' (neither does lsp).
+;;
+;; Elixir editing note:
 ;; Requering alchemist automatically configures elixir buffers to use it.
 (require 'alchemist)
 ;; Call `M-x customize', find `alchemist-goto-elixir-source-dir' and
@@ -247,12 +242,10 @@ otherwise just use the regular newline function."
 ;; to jump to implementations of Erlang and Elixir functions.
 ;;
 ;; You can also edit `custom.el' yourself and specify the values there.
-
-;; Improve HTML editing for Elixir embedded models.
-(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
-;; NOTE:
-;; elixir auto completion inside HTML is broken, alchemist doesn't like
-;; completing without `elixir-mode'.
+;;
+;; 2020-04-23:
+;; To go to source code definitions (Erlang or Elixir) with lsp you must
+;; call `alchemist-goto-definition-at-point' manually with `M-x'.
 
 ;; With the exception of C, all other languages expect spaces instead of
 ;; tabs.
@@ -268,6 +261,23 @@ otherwise just use the regular newline function."
 (require 'vue-mode)
 (require 'yaml-mode)
 (require 'yang-mode)
+
+;; Fix vue javascript/typescript indentation.
+;;
+;; Read issue for more information:
+;; https://github.com/AdamNiederer/vue-mode/issues/100
+(setq-default mmm-js-mode-enter-hook
+              (lambda () (progn
+                      (setq syntax-ppss-table nil)
+                      (setq-default js-indent-level 2)
+                      (lsp)
+                      )))
+(setq-default mmm-typescript-mode-enter-hook
+              (lambda () (progn
+                      (setq syntax-ppss-table nil)
+                      (setq-default js-indent-level 2)
+                      (lsp)
+                      )))
 
 ;; Load magit to get the key bindings.
 (require 'magit)
