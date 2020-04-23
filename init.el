@@ -180,25 +180,6 @@
 ;; OpenBSD C style plus tweaks.
 (require 'cc-mode)
 
-(defun c-newline ()
-  "C newline implementation.
-
-Check if we are inside a code comment to continue inside comment,
-otherwise just use the regular newline function."
-  (interactive)
-  (let ((cont t) langelem)
-    (save-excursion
-      ;; Find the language element we are inside of.
-      (while cont
-        (setq langelem (caar (last (c-guess-basic-syntax))))
-        (unless (eq langelem 'c)
-          (setq cont nil))
-        (forward-line -1)))
-    ;; If inside comment use comment newline otherwise use the default.
-    (if (eq langelem 'comment-intro)
-        (c-indent-new-comment-line)
-      (newline-and-indent))))
-
 (defconst openbsd-c-style
   '(
     ;; Use tabs and represent them with 8 spaces.
