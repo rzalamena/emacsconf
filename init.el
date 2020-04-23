@@ -84,6 +84,7 @@
 
 ;; VCS gutter.
 (require 'diff-hl)
+(global-diff-hl-mode t)
 
 ;; Save settings and buffers.
 (desktop-save-mode t)
