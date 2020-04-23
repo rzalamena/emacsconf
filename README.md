@@ -46,6 +46,16 @@ Configure your emacs variable `lsp-clients-elixir-server-executable` to
 point to the generated/installed `language_server.sh` file.
 
 
+JavaScript/TypeScript/Vue Language Server
+-----------------------------------------
+
+`eslint` >= 6 broke compatibility. The easiest fix is just to use version 5:
+
+```sh
+npm install -g eslint@5
+```
+
+
 Spell Check
 -----------
 
