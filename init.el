@@ -69,9 +69,9 @@
       ;; Check if we have ever refreshed the repositories, otherwise
       ;; do it to avoid error messages on boot-up.
       (unless isrefreshed
-	(progn
-	  (package-refresh-contents)
-	  (setq isrefreshed t)))
+        (progn
+          (package-refresh-contents)
+          (setq isrefreshed t)))
       (package-install package))))
 
 
@@ -145,9 +145,9 @@
 ;; Show annoying whitespaces.
 (require 'whitespace)
 (setq whitespace-style '(face trailing lines-tail empty
-			      space-after-tab::tab space-after-tab::space
-			      space-after-tab space-before-tab::tab
-			      space-before-tab::space space-before-tab))
+                              space-after-tab::tab space-after-tab::space
+                              space-after-tab space-before-tab::tab
+                              space-before-tab::space space-before-tab))
 (global-whitespace-mode t)
 
 ;; Auto complete.
@@ -190,10 +190,10 @@ otherwise just use the regular newline function."
     (save-excursion
       ;; Find the language element we are inside of.
       (while cont
-	(setq langelem (caar (last (c-guess-basic-syntax))))
-	(unless (eq langelem 'c)
-	  (setq cont nil))
-	(forward-line -1)))
+        (setq langelem (caar (last (c-guess-basic-syntax))))
+        (unless (eq langelem 'c)
+          (setq cont nil))
+        (forward-line -1)))
     ;; If inside comment use comment newline otherwise use the default.
     (if (eq langelem 'comment-intro)
         (c-indent-new-comment-line)
@@ -213,10 +213,10 @@ otherwise just use the regular newline function."
 
     ;; Some items to make code editing more pleasant.
     (add-to-list 'c-cleanup-list
-		 '(brace-else-brace
-		   brace-elseif-brace
-		   defun-close-semi
-		   compact-empty-funcall)))
+                 '(brace-else-brace
+                   brace-elseif-brace
+                   defun-close-semi
+                   compact-empty-funcall)))
   "OpenBSD C style.")
 (c-add-style "openbsd" openbsd-c-style)
 
@@ -266,16 +266,16 @@ otherwise just use the regular newline function."
 ;; https://github.com/AdamNiederer/vue-mode/issues/100
 (setq-default mmm-js-mode-enter-hook
               (lambda () (progn
-                      (setq syntax-ppss-table nil)
-                      (setq-default js-indent-level 2)
-                      (lsp)
-                      )))
+                           (setq syntax-ppss-table nil)
+                           (setq-default js-indent-level 2)
+                           (lsp)
+                           )))
 (setq-default mmm-typescript-mode-enter-hook
               (lambda () (progn
-                      (setq syntax-ppss-table nil)
-                      (setq-default js-indent-level 2)
-                      (lsp)
-                      )))
+                           (setq syntax-ppss-table nil)
+                           (setq-default js-indent-level 2)
+                           (lsp)
+                           )))
 
 ;; Load magit to get the key bindings.
 (require 'magit)
