@@ -186,6 +186,7 @@
     ;; Use tabs and represent them with 8 spaces.
     (c-basic-offset . 8)
     (c-tab-always-indent . t)
+    (indent-tabs-mode . t)
 
     ;; Labels start at column 0 of the indentation.
     (c-label-minimum-indentation . 0)
