@@ -19,6 +19,7 @@
                        ;; Languages support.
                        alchemist
                        clang-format
+                       cmake-mode
                        dockerfile-mode
                        gitignore-mode
                        gnuplot-mode
@@ -234,6 +235,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Load languages support.
+(require 'cmake-mode)
 (require 'dockerfile-mode)
 (require 'gnuplot-mode)
 (require 'graphviz-dot-mode)
