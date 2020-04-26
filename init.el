@@ -25,6 +25,7 @@
                        gnuplot-mode
                        graphviz-dot-mode
                        markdown-mode
+                       nginx-mode
                        vue-mode
                        web-mode
                        yaml-mode
@@ -240,6 +241,7 @@
 (require 'dockerfile-mode)
 (require 'gnuplot-mode)
 (require 'graphviz-dot-mode)
+(require 'nginx-mode)
 (require 'vue-mode)
 (require 'yaml-mode)
 (require 'yang-mode)
