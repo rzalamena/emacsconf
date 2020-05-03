@@ -237,6 +237,9 @@
 ;; tabs.
 (setq-default indent-tabs-mode nil)
 
+;; Use two spaces indentation for shell scripting by default.
+(setq-default sh-basic-offset 2)
+
 ;; Load languages support.
 (require 'cmake-mode)
 (require 'cmake-ide)
