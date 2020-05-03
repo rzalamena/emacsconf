@@ -19,6 +19,7 @@
                        ;; Languages support.
                        alchemist
                        clang-format
+                       cmake-ide
                        cmake-mode
                        dockerfile-mode
                        gitignore-mode
@@ -238,6 +239,9 @@
 
 ;; Load languages support.
 (require 'cmake-mode)
+(require 'cmake-ide)
+(cmake-ide-setup)
+
 (require 'dockerfile-mode)
 (require 'gnuplot-mode)
 (require 'graphviz-dot-mode)
