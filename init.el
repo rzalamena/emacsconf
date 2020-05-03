@@ -209,6 +209,7 @@
 (add-hook 'c-mode-hook
           (lambda () (progn
                   (ggtags-mode t)
+                  (flycheck-select-checker 'c/c++-clang)
                   (c-set-style "openbsd")
                   )))
 
