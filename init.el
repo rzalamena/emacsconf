@@ -282,5 +282,8 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
+;; Performance tweak: increase garbage colector threshold.
+(setq gc-cons-threshold 50000000)
+
 (provide 'init)
 ;;; init.el ends here
