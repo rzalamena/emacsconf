@@ -62,7 +62,7 @@
                        rainbow-mode
 
                        ;; Theme.
-                       gruvbox-theme
+                       cyberpunk-theme
                        ))
 
 ;; Detect non installed packages and install them.
@@ -126,7 +126,7 @@
 (global-set-key [f8] 'neotree-toggle)
 
 ;; Load theme.
-(require 'gruvbox-theme)
+(require 'cyberpunk-theme)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
