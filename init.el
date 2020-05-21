@@ -286,5 +286,8 @@
 ;; Performance tweak: increase garbage colector threshold.
 (setq gc-cons-threshold 50000000)
 
+;; Start server by default.
+(server-start)
+
 (provide 'init)
 ;;; init.el ends here
