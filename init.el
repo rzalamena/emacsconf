@@ -266,6 +266,22 @@
                            (lsp)
                            )))
 
+;; According to ebuild developers manual we must use tabs instead of spaces.
+;;
+;; Source:
+;; https://devmanual.gentoo.org/ebuild-writing/common-mistakes/index.html
+;;
+;; Last access: 2020-05-24.
+;;
+;; --- Quote begin ---
+;; It is no fun reformatting lines of ebuilds because the submitter did not
+;; follow the guidelines to use TABS rather than spaces. So please use tabs!
+;; -- Quote end ---
+(add-hook 'ebuild-mode-hook
+          (lambda () (progn
+                  (setq sh-basic-offset 8)
+                  (setq indent-tabs-mode t))))
+
 ;; Load magit to get the key bindings.
 (require 'magit)
 
