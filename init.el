@@ -36,7 +36,6 @@
                        lsp-mode
                        lsp-ui
                        lsp-elixir
-                       company-lsp
                        dap-mode
 
                        ;; Syntax checking.
@@ -155,21 +154,17 @@
 
 ;; Auto complete.
 (require 'company)
-(require 'company-lsp)
 (require 'lsp-mode)
 (require 'lsp-ui)
 (require 'dap-mode)
 
 ;; Automatically configure lsp for all languages. Worst case is the
 ;; language is not supported and a warning message will be printed.
-(add-hook 'prog-mode-hook #'lsp)
+(add-hook 'prog-mode-hook #'lsp-deferred)
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
 (setq company-minimum-prefix-length 1) ;; Complete earlier.
-
-;; Configure company to use the LSP backend.
-(add-to-list 'company-backends '(company-lsp))
 
 ;; Syntax checking.
 (global-flycheck-mode t)
