@@ -160,7 +160,15 @@
 
 ;; Automatically configure lsp for all languages. Worst case is the
 ;; language is not supported and a warning message will be printed.
-(add-hook 'prog-mode-hook #'lsp-deferred)
+(add-hook 'prog-mode-hook
+          (lambda () (
+                 if (string= major-mode "c-mode")
+                    (progn
+                      (lsp)
+                      (flycheck-select-checker 'c/c++-clang)
+                      )
+                  (lsp-deferred)
+                  )))
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
