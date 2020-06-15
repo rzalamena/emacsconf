@@ -6,17 +6,18 @@ Required Packages
 
 Dependencies per language:
 
-| Language   | Packages                        |
-|:----------:|---------------------------------|
-| C          | `clang`, `global` (gtags)       |
-| cmake      | `cmake-language-server` (pip)   |
-| Elixir     | `erlang`, `elixir`, `elixir-ls` |
-| Git        | `git`                           |
-| JavaScript | `vls` (npm/yarn)                |
-| Markdown   | `discount`                      |
-| Python     | `python-language-server` (pip)  |
-| Ruby       | `solargraph` (gem)              |
-| Vue        | `vls` (npm/yarn)                |
+| Language   | Packages                           |
+|:----------:|------------------------------------|
+| bash       | `bash-language-server` (npm)       |
+| c          | `clang >= 9`, `global` (gtags)     |
+| cmake      | `cmake-language-server` (pip)      |
+| elixir     | `erlang`, `elixir`, `elixir-ls`    |
+| git        | `git`                              |
+| javascript | `typescript-language-server` (npm) |
+| markdown   | `discount`                         |
+| python     | `python-language-server` (pip)     |
+| ruby       | `solargraph` (gem)                 |
+| vue        | `vls` (npm/yarn)                   |
 
 
 Language Servers
@@ -53,6 +54,58 @@ JavaScript/TypeScript/Vue Language Server
 
 ```sh
 npm install -g eslint@5
+npm install -g typescript-language-server typescript vls
+```
+
+Bash Language Server
+--------------------
+
+```sh
+npm install -g bash-language-server
+```
+
+
+CMake Language Server
+---------------------
+
+```sh
+pip install --user cmake-language-server
+```
+
+
+Ruby Language Server
+--------------------
+
+To use the ruby language server (solargraph) you need to install two gems:
+
+```sh
+# Either install as rvm, user or global.
+gem install solargraph rubocop
+```
+
+If you are editing a project using the gem hierarchy (e.g. `bin`, `lib`
+folders) you are going to need a `<project>.gemspec` file to your workspace
+in order for solargraph to find your files.
+
+Here is a sample:
+
+```rb
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift "./lib"
+
+Gem::Specification.new do |s|
+  s.name = 'project-name'
+  s.version = '0.0.1'
+  s.license = 'license'
+  s.summary = 'summary'
+  s.authors = ['author 1']
+  s.email = 'your@mail'
+  s.files = ['lib/**/*.rb']
+  s.executables = ['your-executable]
+  # s.extensions = ['ext/<extension>/extconf.rb']
+  # s.homepage = 'https://yousite.you'
+end
 ```
 
 
@@ -103,8 +156,7 @@ If flycheck complains about missing header or you need to supply a definition:
             (flycheck-gcc-include-path . ("." "../" "../secret-headers"))
             (flycheck-clang-include-path . ("." "../" "../secret-headers"))
             ;; Tell the compiler about the makefile guards.
-            (flycheck-gcc-args . ("-std=gnu11"
-                                  "-DHAVE_CONFIG_H"
+            (flycheck-gcc-args . ("-DHAVE_CONFIG_H" ;; for config.h projects.
                                   "-Wall"
                                   "-Wextra"
                                   "-Wstrict-prototypes"
@@ -117,8 +169,7 @@ If flycheck complains about missing header or you need to supply a definition:
                                   "-Wswitch-enum"
                                   "-Wimplicit-fallthrough"
                                   ))
-            (flycheck-clang-args . ("-std=gnu11"
-                                    "-DHAVE_CONFIG_H"
+            (flycheck-clang-args . ("-DHAVE_CONFIG_H"  ;; for config.h projects.
                                     "-Wall"
                                     "-Wextra"
                                     "-Wstrict-prototypes"
