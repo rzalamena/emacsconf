@@ -35,7 +35,6 @@
                        ;; LSP plugins.
                        lsp-mode
                        lsp-ui
-                       lsp-elixir
                        dap-mode
 
                        ;; Syntax checking.
