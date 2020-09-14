@@ -125,6 +125,7 @@
 
 ;; Load theme.
 (require 'cyberpunk-theme)
+(load-theme 'cyberpunk t)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
