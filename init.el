@@ -305,6 +305,9 @@
 ;; Performance tweak: increase garbage colector threshold.
 (setq gc-cons-threshold 50000000)
 
+;; Performance tweak: increase read buffer size.
+(setq read-process-output-max (* 1024 1024))
+
 ;; Start server by default.
 (server-start)
 
