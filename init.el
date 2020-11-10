@@ -62,9 +62,6 @@
                        neotree
                        rainbow-delimiters
                        rainbow-mode
-
-                       ;; Theme.
-                       cyberpunk-theme
                        ))
 
 ;; Detect non installed packages and install them.
@@ -121,10 +118,6 @@
 (require 'neotree)
 (setq neo-theme 'classic)
 (global-set-key [f8] 'neotree-toggle)
-
-;; Load theme.
-(require 'cyberpunk-theme)
-(load-theme 'cyberpunk t)
 
 ;; Load rainbow & rainbow-delimiters mode.
 (require 'rainbow-delimiters)
