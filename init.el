@@ -299,6 +299,10 @@
 ;; Performance tweak: increase read buffer size.
 (setq read-process-output-max (* 1024 1024))
 
+;; Silence a warning when editing Elixir projects:
+;; node packages can easily reach 10k files in a project directory.
+(setq lsp-file-watch-threshold 10000)
+
 ;; Start server by default.
 (server-start)
 
