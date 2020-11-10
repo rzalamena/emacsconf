@@ -35,7 +35,6 @@
                        ;; LSP plugins.
                        lsp-mode
                        lsp-ui
-                       dap-mode
 
                        ;; Syntax checking.
                        flycheck
@@ -49,7 +48,6 @@
                        magit
 
                        ;; UI improvements.
-                       all-the-icons
                        diff-hl
                        flx
                        flx-ido
@@ -113,14 +111,9 @@
 ;; Make symbols pretty when possible.
 (global-prettify-symbols-mode t)
 
-;; Load icons for neotree and themes.
-(require 'all-the-icons)
-;; Note: you must run `all-the-icons-install-fonts' in order to get the
-;; icons to show.
-
 ;; Load neotree and set the key binding.
 (require 'neotree)
-(setq neo-theme 'icons)
+(setq neo-theme 'classic)
 (global-set-key [f8] 'neotree-toggle)
 
 ;; Load theme.
@@ -156,7 +149,6 @@
 (require 'company)
 (require 'lsp-mode)
 (require 'lsp-ui)
-(require 'dap-mode)
 
 ;; Automatically configure lsp for all languages. Worst case is the
 ;; language is not supported and a warning message will be printed.
