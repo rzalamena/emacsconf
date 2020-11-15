@@ -149,17 +149,16 @@
 (require 'lsp-mode)
 (require 'lsp-ui)
 
+;; Setup flycheck clang analyzer.
+(require 'flycheck-clang-analyzer)
+(flycheck-clang-analyzer-setup)
+
+;; Disable LSP default flychecker.
+(setq-default lsp-diagnostics-provider :none)
+
 ;; Automatically configure lsp for all languages. Worst case is the
 ;; language is not supported and a warning message will be printed.
-(add-hook 'prog-mode-hook
-          (lambda () (
-                 if (string= major-mode "c-mode")
-                    (progn
-                      (lsp)
-                      (flycheck-select-checker 'c/c++-clang)
-                      )
-                  (lsp-deferred)
-                  )))
+(add-hook 'prog-mode-hook (lambda () (lsp-deferred)))
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
@@ -206,10 +205,6 @@
                   (flycheck-select-checker 'c/c++-clang)
                   (c-set-style "openbsd")
                   )))
-
-;; Setup flycheck clang analyzer.
-(require 'flycheck-clang-analyzer)
-(flycheck-clang-analyzer-setup)
 
 ;; HTML editing note:
 ;; elixir auto completion inside HTML is broken, alchemist doesn't like
