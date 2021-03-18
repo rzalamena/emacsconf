@@ -10,12 +10,7 @@
 
 ;; Repository list.
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-
-(setq package-archive-priorities '(("melpa-stable" . 1))
-      package-pinned-packages '((flycheck . "melpa")))
 
 ;; Packages to auto install.
 (defvar package-list '(
