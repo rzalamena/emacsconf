@@ -200,6 +200,11 @@
                   (c-set-style "openbsd")
                   )))
 
+(add-hook 'cpp-mode-hook
+          (lambda () (progn
+                  (lsp-deferred)
+                  (flycheck-select-checker 'c/c++-clang))))
+
 ;; HTML editing note:
 ;; elixir auto completion inside HTML is broken, alchemist doesn't like
 ;; completing without `elixir-mode' (neither does lsp).
