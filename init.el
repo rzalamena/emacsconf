@@ -42,7 +42,6 @@
                        flycheck-clang-analyzer
 
                        ;; Project handling.
-                       ggtags
                        projectile
 
                        ;; Git handling.
@@ -151,6 +150,9 @@
 ;; Disable LSP default flychecker.
 (setq-default lsp-diagnostics-provider :none)
 
+;; Set some key bindings.
+(define-key lsp-mode-map (kbd "M-.") 'lsp-find-definition)
+(define-key lsp-mode-map (kbd "M-]") 'lsp-find-references)
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
@@ -193,7 +195,6 @@
 ;; Automatically configure C buffers to use my preference.
 (add-hook 'c-mode-hook
           (lambda () (progn
-                  (ggtags-mode t)
                   (lsp-deferred)
                   (flycheck-select-checker 'c/c++-clang)
                   (c-set-style "openbsd")
