@@ -151,9 +151,6 @@
 ;; Disable LSP default flychecker.
 (setq-default lsp-diagnostics-provider :none)
 
-;; Automatically configure lsp for all languages. Worst case is the
-;; language is not supported and a warning message will be printed.
-(add-hook 'prog-mode-hook 'lsp-deferred)
 
 (global-company-mode t)
 (setq company-idle-delay 0) ;; Faster auto completion.
@@ -197,6 +194,7 @@
 (add-hook 'c-mode-hook
           (lambda () (progn
                   (ggtags-mode t)
+                  (lsp-deferred)
                   (flycheck-select-checker 'c/c++-clang)
                   (c-set-style "openbsd")
                   )))
@@ -246,13 +244,13 @@
               (lambda () (progn
                            (setq syntax-ppss-table nil)
                            (setq-default js-indent-level 2)
-                           (lsp)
+                           (lsp-deferred)
                            )))
 (setq-default mmm-typescript-mode-enter-hook
               (lambda () (progn
                            (setq syntax-ppss-table nil)
                            (setq-default js-indent-level 2)
-                           (lsp)
+                           (lsp-deferred)
                            )))
 
 ;; According to ebuild developers manual we must use tabs instead of spaces.
